@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="description" content="helloworld" />
+        <meta
+            name="viewport"
+            content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"
+        />
+        <meta name="theme-color" content="#000000" />
+        <meta name="format-detection" content="telephone=no" />
+        <script src="/assets/lib/flexible_css.js"></script>
+        <script src="/assets/lib/flexible.min.js"></script>
+        <script>
+            document.title = "";
+        </script>
+        <style>
+            .am-list-item .am-input-control input {
+                color: #666 !important;
+            }
+
+            .am-list-item .am-input-label {
+                color: #333 !important;
+            }
+
+            input::-webkit-input-placeholder,
+            textarea::-webkit-input-placeholder {
+                color: #c9c9c9 !important;
+            }
+
+            input:-moz-placeholder,
+            textarea:-moz-placeholder {
+                color: #c9c9c9 !important;
+            }
+
+            input::-moz-placeholder,
+            textarea::-moz-placeholder {
+                color: #c9c9c9 !important;
+            }
+
+            input:-ms-input-placeholder,
+            textarea:-ms-input-placeholder {
+                /* Internet Explorer 10+ */
+                color: #c9c9c9 !important;
+            }
+
+            #root {
+                height: 100%;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .loading {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 9999999;
+            }
+
+            .main {
+                width: 120px;
+                height: 110px;
+                background: rgba(0, 0, 0, 0.5);
+                margin: 0 auto;
+                border-radius: 6px;
+                position: fixed;
+                left: 50%;
+                margin-left: -60px;
+                top: 50%;
+                margin-top: -55px;
+            }
+
+            .values {
+                text-align: center;
+                font-size: 13px;
+                color: #fff;
+                margin-top: 12px;
+            }
+
+            /*!
+ * Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)
+ * Copyright 2015 Daniel Cardoso <@DanielCardoso>
+ * Licensed under MIT
+ */
+
+            .la-ball-clip-rotate,
+            .la-ball-clip-rotate > div {
+                position: relative;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .la-ball-clip-rotate {
+                display: block;
+                font-size: 0;
+                color: #fff;
+            }
+
+            .la-ball-clip-rotate.la-dark {
+                color: #333;
+            }
+
+            .la-ball-clip-rotate > div {
+                display: inline-block;
+                float: none;
+                background-color: currentColor;
+                border: 0 solid currentColor;
+            }
+
+            .la-ball-clip-rotate {
+                width: 32px;
+                height: 32px;
+            }
+
+            .la-ball-clip-rotate > div {
+                width: 32px;
+                height: 32px;
+                background: transparent;
+                border-width: 2px;
+                border-bottom-color: transparent;
+                border-radius: 100%;
+                -webkit-animation: ball-clip-rotate 0.75s linear infinite;
+                -moz-animation: ball-clip-rotate 0.75s linear infinite;
+                -o-animation: ball-clip-rotate 0.75s linear infinite;
+                animation: ball-clip-rotate 0.75s linear infinite;
+            }
+
+            .la-ball-clip-rotate.la-sm {
+                width: 16px;
+                height: 16px;
+            }
+
+            .la-ball-clip-rotate.la-sm > div {
+                width: 16px;
+                height: 16px;
+                border-width: 1px;
+            }
+
+            .la-ball-clip-rotate.la-2x {
+                width: 64px;
+                height: 64px;
+            }
+
+            .la-ball-clip-rotate.la-2x > div {
+                width: 48px;
+                height: 48px;
+                margin-left: 36px;
+                border-width: 4px;
+                margin-top: 15px;
+                margin-bottom: 35px;
+            }
+
+            .la-ball-clip-rotate.la-3x {
+                width: 96px;
+                height: 96px;
+            }
+
+            .la-ball-clip-rotate.la-3x > div {
+                width: 96px;
+                height: 96px;
+                border-width: 6px;
+            }
+
+            /*
+         * Animation
+         */
+
+            @-webkit-keyframes ball-clip-rotate {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                50% {
+                    -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg);
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+
+            @-moz-keyframes ball-clip-rotate {
+                0% {
+                    -moz-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                50% {
+                    -moz-transform: rotate(180deg);
+                    transform: rotate(180deg);
+                }
+                100% {
+                    -moz-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+
+            @-o-keyframes ball-clip-rotate {
+                0% {
+                    -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                50% {
+                    -o-transform: rotate(180deg);
+                    transform: rotate(180deg);
+                }
+                100% {
+                    -o-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes ball-clip-rotate {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                50% {
+                    -webkit-transform: rotate(180deg);
+                    -moz-transform: rotate(180deg);
+                    -o-transform: rotate(180deg);
+                    transform: rotate(180deg);
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    -moz-transform: rotate(360deg);
+                    -o-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="loading">
+                <div class="main">
+                    <div class="item-inner">
+                        <div class="item-loader-container">
+                            <div class="la-ball-clip-rotate la-2x">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="values">数据加载中</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

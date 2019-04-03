@@ -1,0 +1,161 @@
+.report_loading {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999999;
+}
+
+.report_main {
+  width: 250px;
+  height: 225px;
+  background: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  border-radius: 6px;
+  position: fixed;
+  left: 53%;
+  margin-left: -150px;
+  top: 50%;
+  margin-top: -137px;
+}
+
+.report_values {
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  margin-top: -30px;
+}
+
+/*!
+  * Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)
+  * Copyright 2015 Daniel Cardoso <@DanielCardoso>
+  * Licensed under MIT
+  */
+.la_ball_clip_rotate,
+.la_ball_clip_rotate > div {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.la_ball_clip_rotate {
+  display: block;
+  font-size: 0;
+  color: #fff;
+}
+
+.la_ball_clip_rotate.la_dark {
+  color: #333;
+}
+
+.la_ball_clip_rotate > div {
+  display: inline-block;
+  float: none;
+  background-color: currentColor;
+  border: 0 solid currentColor;
+}
+
+.la_ball_clip_rotate {
+  width: 80px;
+  height: 80px;
+}
+
+.la_ball_clip_rotate > div {
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  border-width: 1px;
+  border-bottom-color: transparent;
+  border-radius: 100%;
+  -webkit-animation: ball_clip_rotate 0.75s linear infinite;
+  -moz-animation: ball_clip_rotate 0.75s linear infinite;
+  -o-animation: ball_clip_rotate 0.75s linear infinite;
+  animation: ball_clip_rotate 0.75s linear infinite;
+}
+
+.la_ball_clip_rotate.la_2x {
+  width: 192px;
+  height: 192px;
+}
+
+.la_ball_clip_rotate.la_2x > div {
+  width: 100px;
+  height: 100px;
+  margin-left: 75px;
+  border-width: 7px;
+  margin-top: 40px;
+  margin-bottom: 87.5px;
+}
+
+/*
+   * Animation
+   */
+@-webkit-keyframes ball_clip_rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes ball_clip_rotate {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes ball_clip_rotate {
+  0% {
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ball_clip_rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

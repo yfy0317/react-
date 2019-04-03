@@ -1,0 +1,21 @@
+{
+    "presets": ["react", "env", "stage-0", "es2015"],
+    "plugins": [
+        ["transform-runtime", { "helpers": false, "polyfill": true, "regenerator": true }],
+        ["import", { "style": true, "libraryName": "antd-mobile" }],
+        "transform-decorators-legacy",
+        "transform-class-properties",
+        [
+            "react-transform",
+            {
+                "transforms": [
+                    {
+                        "transform": "react-transform-hmr",
+                        "imports": ["react"],
+                        "locals": ["module"]
+                    }
+                ]
+            }
+        ]
+    ]
+}

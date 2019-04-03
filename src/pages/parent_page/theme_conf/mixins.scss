@@ -1,0 +1,31 @@
+
+@charset "utf-8";
+@import "variable";/*引入配置*/
+
+@mixin font_size($size){/*通过该函数设置字体大小，后期方便统一管理；*/
+  @include font-dpr($size);
+}
+@mixin font_color {/*通过该函数设置字体颜色，后期方便统一管理；*/
+  [data-theme="theme1"] {
+    color:$font-color-theme1;
+  }
+  [data-theme="theme2"]  {
+    color:red;
+  }
+  [data-theme="theme3"] {
+    color:$font-color-theme3;
+  }
+}
+@mixin bg_color { /*通过该函数设置主题颜色，后期方便统一管理；*/
+  [ data-theme="theme1" ] {
+    background: $background-color-theme1;
+  }
+  [ data-theme="theme2"] {
+    background: $background-color-theme2;
+  }
+  [data-theme="theme3" ] {
+    background: $background-color-theme3;
+  }
+}
+@include bg_color()
+@include font_color()
