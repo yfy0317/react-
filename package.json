@@ -96,6 +96,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx}": [
       "prettier --tab-width 2 --write",
+
       "git add"
     ],
     "build/**/*.{js,jsx}": [
