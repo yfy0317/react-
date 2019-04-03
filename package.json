@@ -95,12 +95,11 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
-      "prettier --tab-width 2 --write",
-
+      "prettier --fix --write",
       "git add"
     ],
     "build/**/*.{js,jsx}": [
-      "prettier --tab-width 2 --write",
+      "prettier --fix --write",
       "git add"
     ]
   },
