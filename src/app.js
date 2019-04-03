@@ -9,16 +9,16 @@ import fastClick from "fastclick";
 
 fastClick.attach(document.body);
 const renders = Component =>
-    render(
-        <Provider store={store}>
-            <div>
-                <BrowserRouter>
-                    <Component />
-                </BrowserRouter>
-            </div>
-        </Provider>,
-        document.getElementById("root")
-    );
+  render(
+    <Provider store={store}>
+      <div>
+        <BrowserRouter>
+          <Component />
+        </BrowserRouter>
+      </div>
+    </Provider>,
+    document.getElementById("root")
+  );
 renders(RouterEntry);
 export default renders;
 // 取消警告

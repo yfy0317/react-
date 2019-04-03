@@ -8,9 +8,9 @@ let objs = require("./reducers/objs");
 let map = require("./reducers/map");
 
 let mainReducer = combineReducers({
-    vars,
-    objs,
-    map
+  vars,
+  objs,
+  map
 });
 const createPersistentStore = compose(persistState())(createStore);
 export default (module.exports = createPersistentStore(mainReducer));

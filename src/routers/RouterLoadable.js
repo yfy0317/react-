@@ -7,18 +7,18 @@ import RouteLoadable from "../pages/business_pages/router";
 // import ErrorPages from './component/ErrorPage'
 
 const Loading = ({ error, pastDelay }) => {
-    if (pastDelay) {
-        return <div>loading</div>;
-    } else if (error) {
-        return <div>err</div>;
-    }
-    return null;
+  if (pastDelay) {
+    return <div>loading</div>;
+  } else if (error) {
+    return <div>err</div>;
+  }
+  return null;
 };
 RouteLoadable.forEach(value => {
-    value.component = Loadable({
-        loader: value.component,
-        loading: Loading,
-        delay: 3000
-    });
+  value.component = Loadable({
+    loader: value.component,
+    loading: Loading,
+    delay: 3000
+  });
 });
 export default RouteLoadable;

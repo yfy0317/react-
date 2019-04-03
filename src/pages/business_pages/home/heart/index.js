@@ -2,19 +2,19 @@ import React from "react";
 import parentComponent from "pages/parent_page";
 
 export default class Home extends parentComponent {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    cc() {
-        this.props.history.push("/login");
-    }
+  cc() {
+    this.props.history.push("/login");
+  }
 
-    render() {
-        return (
-            <div>
-                <div onClick={() => this.cc()}> 首页</div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <div onClick={() => this.cc()}> 首页</div>
+      </div>
+    );
+  }
 }

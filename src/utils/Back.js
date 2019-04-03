@@ -9,37 +9,37 @@
 	});
  */
 !(function(pkg, undefined) {
-    let STATE = "x-back";
-    let element;
+  let STATE = "x-back";
+  let element;
 
-    let onPopState = function(event) {
-        event.state === STATE && fire();
-    };
+  let onPopState = function(event) {
+    event.state === STATE && fire();
+  };
 
-    let record = function(state) {
-        history.pushState(state, null, location.href);
-    };
+  let record = function(state) {
+    history.pushState(state, null, location.href);
+  };
 
-    var fire = function() {
-        let event = document.createEvent("Events");
-        event.initEvent(STATE, false, false);
-        element.dispatchEvent(event);
-    };
+  var fire = function() {
+    let event = document.createEvent("Events");
+    event.initEvent(STATE, false, false);
+    element.dispatchEvent(event);
+  };
 
-    let listen = function(listener) {
-        element.addEventListener(STATE, listener, false);
-    };
+  let listen = function(listener) {
+    element.addEventListener(STATE, listener, false);
+  };
 
-    !function() {
-        element = document.createElement("span");
-        window.addEventListener("popstate", onPopState);
-        this.listen = listen;
-        record(STATE);
-    }.call((window[pkg] = window[pkg] || {}));
+  !function() {
+    element = document.createElement("span");
+    window.addEventListener("popstate", onPopState);
+    this.listen = listen;
+    record(STATE);
+  }.call((window[pkg] = window[pkg] || {}));
 })("XBack");
 
 XBack.listen(function() {
-    location.href = `${location.origin}/auth/home?token=${localStorage.getItem(
-        "sxtoken"
-    )}`;
+  location.href = `${location.origin}/auth/home?token=${localStorage.getItem(
+    "sxtoken"
+  )}`;
 });

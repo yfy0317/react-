@@ -90,12 +90,15 @@
     "build": "cross-env TEST_ENV=NO webpack --config build/webpack.pro.js",
     "clear": "rimraf ./dist",
     "precommit": "lint-staged",
-    "prettify": "prettier --fix --write 'src/**/*.js'"
+    "prettify": "prettier --fix --write 'src/**/*.{js,jsx}' 'build/**/*.{js,jsx}'"
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
+      "prettier --tab-width 2 --write",
+      "git add"
+    ],
+    "build/**/*.{js,jsx}": [
       "prettier --tab-width 4 --write",
-
       "git add"
     ]
   },
