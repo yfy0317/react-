@@ -1,20 +1,18 @@
 !(function(e, n) {
-  "function" === typeof define && (define.amd || define.cmd)
-    ? define(function() {
-        return n(e);
-      })
+  typeof define === "function" && (define.amd || define.cmd)
+    ? define(() => n(e))
     : n(e, !0);
-})(this, function(e, n) {
+})(this, (e, n) => {
   function i(n, i, t) {
     e.WeixinJSBridge
-      ? WeixinJSBridge.invoke(n, o(i), function(e) {
+      ? WeixinJSBridge.invoke(n, o(i), e => {
           c(n, e, t);
         })
       : l(n, t);
   }
   function t(n, i, t) {
     e.WeixinJSBridge
-      ? WeixinJSBridge.on(n, function(e) {
+      ? WeixinJSBridge.on(n, e => {
           t && t.trigger && t.trigger(e), c(n, e, i);
         })
       : t
@@ -58,7 +56,7 @@
     );
   }
   function c(e, n, i) {
-    "openEnterpriseChat" == e && (n.errCode = n.err_code),
+    e == "openEnterpriseChat" && (n.errCode = n.err_code),
       delete n.err_code,
       delete n.err_desc,
       delete n.err_detail;
@@ -67,7 +65,7 @@
       (i = i || {})._complete && (i._complete(n), delete i._complete),
       (t = n.errMsg || ""),
       A.debug && !i.isInnerInvoke && alert(JSON.stringify(n));
-    let o = t.indexOf(":");
+    const o = t.indexOf(":");
     switch (t.substring(o + 1)) {
       case "ok":
         i.success && i.success(n);
@@ -86,16 +84,16 @@
     t && (i = t);
     let o = "ok";
     if (n) {
-      let r = n.indexOf(":");
+      const r = n.indexOf(":");
       (o = n.substring(r + 1)) == "confirm" && (o = "ok"),
-        "failed" == o && (o = "fail"),
+        o == "failed" && (o = "fail"),
         o.indexOf("failed_") != -1 && (o = o.substring(7)),
         o.indexOf("fail_") != -1 && (o = o.substring(5)),
-        ("access denied" != (o = (o = o.replace(/_/g, " ")).toLowerCase()) &&
-          "no permission to execute" != o) ||
+        ((o = (o = o.replace(/_/g, " ")).toLowerCase()) != "access denied" &&
+          o != "no permission to execute") ||
           (o = "permission denied"),
         i == "config" && o == "function not exist" && (o = "ok"),
-        "" == o && (o = "fail");
+        o == "" && (o = "fail");
     }
     return (n = `${i}:${o}`);
   }
@@ -111,7 +109,7 @@
   }
   function l(e, n) {
     if (!(!A.debug || (n && n.isInnerInvoke))) {
-      let i = h[e];
+      const i = h[e];
       i && (e = i),
         n && n._complete && delete n._complete,
         console.log(`"${e}",`, n || "");
@@ -119,7 +117,7 @@
   }
   function u(e) {
     if (!(_ || w || A.debug || M < "6.0.2" || V.systemType < 0)) {
-      let n = new Image();
+      const n = new Image();
       (V.appId = A.appId),
         (V.initTime = C.initEndTime - C.initStartTime),
         (V.preVerifyTime = C.preVerifyEndTime - C.preVerifyStartTime),
@@ -127,25 +125,11 @@
           isInnerInvoke: !0,
           success(e) {
             V.networkType = e.networkType;
-            let i =
-              "https://open.weixin.qq.com/sdk/report?v=" +
-              V.version +
-              "&o=" +
-              V.isPreVerifyOk +
-              "&s=" +
-              V.systemType +
-              "&c=" +
-              V.clientVersion +
-              "&a=" +
-              V.appId +
-              "&n=" +
-              V.networkType +
-              "&i=" +
-              V.initTime +
-              "&p=" +
-              V.preVerifyTime +
-              "&u=" +
-              V.url;
+            const i = `https://open.weixin.qq.com/sdk/report?v=${V.version}&o=${
+              V.isPreVerifyOk
+            }&s=${V.systemType}&c=${V.clientVersion}&a=${V.appId}&n=${
+              V.networkType
+            }&i=${V.initTime}&p=${V.preVerifyTime}&u=${V.url}`;
             n.src = i;
           }
         });
@@ -192,8 +176,8 @@
         openAddress: "editAddress"
       },
       h = (function() {
-        let e = {};
-        for (let n in g) e[g[n]] = n;
+        const e = {};
+        for (const n in g) e[g[n]] = n;
         return e;
       })(),
       S = e.document,
@@ -206,7 +190,7 @@
       k = y.indexOf("android") != -1,
       x = y.indexOf("iphone") != -1 || y.indexOf("ipad") != -1,
       M = (function() {
-        let e =
+        const e =
           y.match(/micromessenger\/(\d+\.\d+\.\d+)/) ||
           y.match(/micromessenger\/(\d+\.\d+)/);
         return e ? e[1] : "";
@@ -231,7 +215,7 @@
       A = {},
       P = { _completes: [] },
       L = { state: 0, data: {} };
-    f(function() {
+    f(() => {
       C.initEndTime = p();
     });
     var B = !1,
@@ -239,8 +223,8 @@
       N = {
         config(e) {
           (A = e), l("config", e);
-          let n = !1 !== A.check;
-          f(function() {
+          const n = !1 !== A.check;
+          f(() => {
             if (n) {
               i(
                 g.config,
@@ -255,9 +239,9 @@
                     (P.fail = function(e) {
                       P._fail ? P._fail(e) : (L.state = -1);
                     });
-                  let e = P._completes;
+                  const e = P._completes;
                   return (
-                    e.push(function() {
+                    e.push(() => {
                       u();
                     }),
                     (P.complete = function(n) {
@@ -288,10 +272,10 @@
           M < "6.0.2" || (L.state == -1 ? e(L.data) : (P._fail = e));
         },
         checkJsApi(e) {
-          let n = function(e) {
-            let n = e.checkResult;
-            for (let i in n) {
-              let t = h[i];
+          const n = function(e) {
+            const n = e.checkResult;
+            for (const i in n) {
+              const t = h[i];
               t && ((n[t] = n[i]), delete n[i]);
             }
             return e;
@@ -301,7 +285,7 @@
             { jsApiList: d(e.jsApiList) },
             ((e._complete = function(e) {
               if (k) {
-                let i = e.checkResult;
+                const i = e.checkResult;
                 i && (e.checkResult = JSON.parse(i));
               }
               e = n(e);
@@ -336,7 +320,7 @@
             g.onMenuShareAppMessage,
             {
               complete(n) {
-                "favorite" === n.scene
+                n.scene === "favorite"
                   ? i("sendAppMessage", {
                       title: e.title || v,
                       desc: e.desc || "",
@@ -484,7 +468,7 @@
             },
             ((e._complete = function(e) {
               if (k) {
-                let n = e.localIds;
+                const n = e.localIds;
                 n && (e.localIds = JSON.parse(n));
               }
             }),
@@ -523,7 +507,7 @@
                 { localId: e.localId },
                 ((e._complete = function(e) {
                   if (((B = !1), O.length > 0)) {
-                    let n = O.shift();
+                    const n = O.shift();
                     wx.getLocalImgData(n);
                   }
                 }),
@@ -532,10 +516,10 @@
             : O.push(e);
         },
         getNetworkType(e) {
-          let n = function(e) {
-            let n = e.errMsg;
+          const n = function(e) {
+            const n = e.errMsg;
             e.errMsg = "getNetworkType:ok";
-            let i = e.subtype;
+            const i = e.subtype;
             if ((delete e.subtype, i)) e.networkType = i;
             else {
               let t = n.indexOf(":"),
@@ -616,9 +600,9 @@
             },
             ((e._complete = function(e) {
               if (x) {
-                let n = e.resultStr;
+                const n = e.resultStr;
                 if (n) {
-                  let i = JSON.parse(n);
+                  const i = JSON.parse(n);
                   e.resultStr = i && i.scan_code && i.scan_code.scan_result;
                 }
               }
@@ -660,7 +644,7 @@
               let n = e.card_list;
               if (n) {
                 for (let i = 0, t = (n = JSON.parse(n)).length; i < t; ++i) {
-                  let o = n[i];
+                  const o = n[i];
                   (o.cardId = o.card_id),
                     (o.cardExt = o.card_ext),
                     (o.isSuccess = !!o.is_succ),
@@ -736,13 +720,13 @@
     return (
       S.addEventListener(
         "error",
-        function(e) {
+        e => {
           if (!k) {
             let n = e.target,
               i = n.tagName,
               t = n.src;
             if (
-              (i == "IMG" || i == "VIDEO" || i == "AUDIO" || "SOURCE" == i) &&
+              (i == "IMG" || i == "VIDEO" || i == "AUDIO" || i == "SOURCE") &&
               t.indexOf("wxlocalresource://") != -1
             ) {
               e.preventDefault(), e.stopPropagation();
@@ -751,7 +735,7 @@
                 return;
               }
               (b[o] = !0),
-                wx.ready(function() {
+                wx.ready(() => {
                   wx.getLocalImgData({
                     localId: t,
                     success(e) {
@@ -766,13 +750,13 @@
       ),
       S.addEventListener(
         "load",
-        function(e) {
+        e => {
           if (!k) {
             let n = e.target,
               i = n.tagName;
             n.src;
             if (i == "IMG" || i == "VIDEO" || i == "AUDIO" || i == "SOURCE") {
-              let t = n["wx-id"];
+              const t = n["wx-id"];
               t && (b[t] = !1);
             }
           }

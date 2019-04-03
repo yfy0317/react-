@@ -27,7 +27,7 @@ export function appendObjs(key, objKey, objValue) {
 }
 
 export function mapSet(...keyPath) {
-  let value = keyPath.pop();
+  const value = keyPath.pop();
   return {
     type: "MAP_SET",
     keyPath,

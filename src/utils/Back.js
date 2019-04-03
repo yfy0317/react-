@@ -9,24 +9,24 @@
 	});
  */
 !(function(pkg, undefined) {
-  let STATE = "x-back";
+  const STATE = "x-back";
   let element;
 
-  let onPopState = function(event) {
+  const onPopState = function(event) {
     event.state === STATE && fire();
   };
 
-  let record = function(state) {
+  const record = function(state) {
     history.pushState(state, null, location.href);
   };
 
   var fire = function() {
-    let event = document.createEvent("Events");
+    const event = document.createEvent("Events");
     event.initEvent(STATE, false, false);
     element.dispatchEvent(event);
   };
 
-  let listen = function(listener) {
+  const listen = function(listener) {
     element.addEventListener(STATE, listener, false);
   };
 
@@ -38,7 +38,7 @@
   }.call((window[pkg] = window[pkg] || {}));
 })("XBack");
 
-XBack.listen(function() {
+XBack.listen(() => {
   location.href = `${location.origin}/auth/home?token=${localStorage.getItem(
     "sxtoken"
   )}`;

@@ -1,7 +1,8 @@
 const plugins = require("./webpack.plugins.config.js");
+const CommonConfig = require("./webpack.common");
 
 module.exports = [
-  require("./webpack.common")({
+  CommonConfig({
     devTool: "false",
     mode: "production",
     dropConsole: true,

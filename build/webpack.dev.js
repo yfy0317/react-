@@ -1,7 +1,8 @@
 const Plugins = require("./webpack.plugins.config");
+const CommonConfig = require("./webpack.common");
 
 module.exports = [
-  require("./webpack.common")({
+  CommonConfig({
     devTool: "#eval-source-map",
     mode: "development",
     dropConsole: false,

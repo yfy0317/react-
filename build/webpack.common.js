@@ -1,13 +1,21 @@
 const antdTheme = require("../antd-theme.json");
 const path = require("path");
 
-module.exports = function(options) {
+module.exports = options => {
   return {
     mode: options.mode,
     devtool: options.devTool, // 配置生成Source Maps，选择合适的选项
     entry: ["babel-polyfill", path.join(__dirname, "../src/app.js")],
     resolve: {
-      extensions: [".js", ".jsx", ".png", ".scss"]
+      extensions: [".js", ".jsx", ".png", ".scss", ".md", ".txt"],
+      alias: {
+        pages: path.resolve(__dirname, "../src/pages"),
+        components: path.resolve(__dirname, "../src/components"),
+        reduxs: path.resolve(__dirname, "../src/reduxs"),
+        utils: path.resolve(__dirname, "../src/utils"),
+        routers: path.resolve(__dirname, "../src/routers"),
+        assets: path.resolve(__dirname, "../src/assets")
+      }
     },
     output: {
       filename: options.bundleHash ? "bundle-[hash].js" : "bundle.js",
@@ -119,17 +127,6 @@ module.exports = function(options) {
         }
       }
     },
-    optimization: options.optimization,
-    resolve: {
-      extensions: [".js", ".md", ".txt"],
-      alias: {
-        pages: path.resolve(__dirname, "../src/pages"),
-        components: path.resolve(__dirname, "../src/components"),
-        reduxs: path.resolve(__dirname, "../src/reduxs"),
-        utils: path.resolve(__dirname, "../src/utils"),
-        routers: path.resolve(__dirname, "../src/routers"),
-        assets: path.resolve(__dirname, "../src/assets")
-      }
-    }
+    optimization: options.optimization
   };
 };

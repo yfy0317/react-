@@ -1,17 +1,12 @@
 import React from "react";
 import styles from "./Header.scss";
-import icon from "../../../../assets/images/headerImg/backBlack.png";
-import store from "reduxs/store";
-
+import PropTypes from "prop-types";
 export default class Header extends React.Component {
-  goBack() {
+  goBack = () => {
     window.history.back();
-  }
-
-  componentDidMount() {}
-
+  };
   render() {
-    const { title } = this.props;
+    const { title = String } = this.props;
     return (
       <div className={styles.title}>
         <div className={styles.arrows}>

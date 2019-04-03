@@ -1,4 +1,5 @@
 import React from "react";
+
 import parentComponent from "pages/parent_page";
 
 export default class Home extends parentComponent {

@@ -1,10 +1,8 @@
-"use strict";
-
-let actions = require("../actions");
+const actions = require("../actions");
 
 module.exports = function(state = {}, action = {}) {
   if (action.type === actions.APPEND_OBJS) {
-    let obj = _.assign({}, state[action.key], action.value);
+    const obj = _.assign({}, state[action.key], action.value);
     return _.assign({}, state, _.zipObject([action.key], [obj]));
   }
 

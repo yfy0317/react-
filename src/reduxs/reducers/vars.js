@@ -1,7 +1,5 @@
-"use strict";
-
-let _ = require("lodash");
-let actions = require("../actions");
+const _ = require("lodash");
+const actions = require("../actions");
 
 module.exports = function(state = {}, action = {}) {
   if (action.type === actions.SET_VARS) {
