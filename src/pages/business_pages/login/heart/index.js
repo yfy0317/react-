@@ -13,7 +13,7 @@ export default class Login extends parentComponent {
   render() {
     return (
       <div>
-        <div onClick={() => this.ccc()}> 我改了333</div>
+        <div onClick={() => this.ccc()}> 44444</div>
       </div>
     );
   }
