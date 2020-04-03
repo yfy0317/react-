@@ -1,6 +1,8 @@
 import React from "react";
 import parentComponent from "pages/parent_page";
 
+
+
 export default class Login extends parentComponent {
   constructor(props) {
     super(props);
@@ -13,7 +15,7 @@ export default class Login extends parentComponent {
   render() {
     return (
       <div>
-        <div onClick={() => this.ccc()}> 44444</div>
+        <div onClick={() => this.ccc()}> 11111</div>
       </div>
     );
   }
