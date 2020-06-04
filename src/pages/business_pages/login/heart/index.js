@@ -15,6 +15,7 @@ export default class Login extends parentComponent {
       <div>
         <div onClick={() => this.ccc()}> 登录了213131313</div>
         <div onClick={() => this.ccc()}> 测试23</div>
+        <div onClick={() => this.ccc()}> 测试3</div>
       </div>
     );
   }
