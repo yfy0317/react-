@@ -64,7 +64,7 @@
     "lodash": "^4.17.10",
     "lrz": "^4.9.40",
     "markdown-loader": "^3.0.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.13.1",
     "open-browser-webpack-plugin": "0.0.5",
     "postcss": "^6.0.22",
     "postcss-html": "^0.27.0",
